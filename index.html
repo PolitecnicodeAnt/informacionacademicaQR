@@ -82,15 +82,36 @@
         </div>
     </div>
 
-    <footer class="mt-4 text-xs text-gray-500 text-center">
-      Documento generado por la institución · Valide la autenticidad en la oficina registral
+    <footer role="contentinfo" aria-label="Pie de página - Información institucional" class="mt-6 text-xs text-gray-500">
+      <div class="bg-white border-t border-gray-100 rounded-b p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+        <!-- Izquierda: logo + institución -->
+        <div class="flex items-center gap-3">
+          <div class="text-left">
+            <div class="font-semibold text-gray-800">POLITÉCNICO DE ANTIOQUIA</div>
+            <div class="text-xs text-gray-500">Informe académico generado por la institución</div>
+          </div>
+        </div>
+
+        <!-- Centro: verificación y fecha -->
+        <div class="text-center">
+          <div class="mt-2 text-gray-500">Fecha de impresión: <span id="fechaImpresion">—</span></div>
+        </div>
+
+        <!-- Derecha: contacto / fuente -->
+        <div class="flex items-center justify-end gap-3">
+          <div class="text-right">
+            <div class="font-medium text-gray-700">Q10</div>
+            <div class="text-xs text-gray-500">www.q10.com</div>
+          </div>
+        </div>
+      </div>
     </footer>
   </main>
 
   <div id="detalleModal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
     <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
       <h2 id="modalTitulo" class="text-lg font-bold text-gray-800 mb-4">Detalle de notas</h2>
-      <p class="text-xs text-gray-500 mb-4 -mt-2">Nota: El desglose de notas es un ejemplo ilustrativo para mantener la funcionalidad del demo.</p>
+      <p class="text-xs text-gray-500 mb-4 -mt-2">Nota: El desglose de notas es detalle oportuno de lo presentado en el informe académico.</p>
       <ul id="modalContenido" class="space-y-2 text-sm text-gray-700"></ul>
       <div class="mt-6 flex justify-end">
         <button onclick="cerrarModal()" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
@@ -290,6 +311,14 @@
     const urlOriginal = 'https://site2.q10.com/ResultadosEstudiante';//ResultadosEstudiante, el código de acceso es el ID del estudiante
     window.open(urlOriginal, '_blank');
   });
+
+      (function(){
+        const d = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        const formatted = `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}`;
+        document.getElementById('fechaImpresion').textContent = formatted;
+      })();
+    
 </script>
 
 </body>
