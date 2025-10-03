@@ -1,37 +1,37 @@
-<!tipo de documento html>
+<!doctype html>
 <html lang="es">
-<cabeza>
-  <meta conjunto de caracteres="utf-8" />
-  <meta nombre="ventana gráfica" contenido="ancho=ancho del dispositivo, escala inicial=1" />
-  <link rel="icono de acceso directo" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAgVBMVEUAAAD////////////////////////////////////w8PDh4eH49/fp6OilpKSHhoa0s7OPjo6enZ2trKzDw8O8u7uWlZXa2dnS0tLLysr/26//zI/4vXj/iwD/miDhtYHStZL/oTC8rJv4r1j/khD/+O//t2D/vnD/qED/6c//4r/KGJqxAAAACnRSTlMAMIC//2DPIFIBUVnjJ9DHAIS/6lTuOUzdtF9JrClDhiLTNmQqPZn3TNMOHKxvmthQqUwAnnaufIvH1DbwIMQmBB4UxHYBTxJLzIxK/ALzpBwD6+b9VTfN3+XUcO//DPsDvvtx7WshJjlCiJZjsCWccwlmPcOYlmP0BRbIcQXdCAdkAAAAASUVORK5CYII=" type="image/x-icon">
-  <título>Informe Académico - Estudiante</título>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="assets/Logo_poli.png" type="image/x-icon">
+  <title>Informe Académico - Estudiante</title>
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <estilo>
-    @media imprimir {
-      .no-print { visualizar: ninguno }
+  <style>
+    @media print {
+      .no-print { display: none }
     }
-  </estilo>
+  </style>
 
   <script>
     // Configuración de Tailwind (colores institucionales)
     tailwind.config = {
-      tema: {
-        extender: {
-          colores: {
-            primario: '#02562d', // Verde institucional
-            acento: '#F59E0B'
+      theme: {
+        extend: {
+          colors: {
+            primary: '#02562d', // Verde institucional
+            accent: '#F59E0B'
           }
         }
       }
     }
   </script>
-</cabeza>
-<cuerpo clase="bg-gray-50 texto-gris-800 min-h-pantalla">
-  <nav rol="navegación" clase="relativo w-completo bg-sombra primaria h-16 flex elementos-centro justificar-centro">
-    <div clase="absoluto -abajo-10">
-      <div clase="bg-blanco redondeado-xl sombra-lg p-2 sm:p-3 elementos flexibles-centro justificar-centro anillo-1 anillo-gris-100">
-        <img src="assets/thumbnail_Logo plataforma.png" alt=„Logo Institución" clase="h-14 sm:h-16 md:h-20 contener objetos">
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+  <nav role="navigation" class="relative w-full bg-primary shadow h-16 flex items-center justify-center">
+    <div class="absolute -bottom-10">
+      <div class="bg-white rounded-xl shadow-lg p-2 sm:p-3 flex items-center justify-center ring-1 ring-gray-100">
+        <img src="assets/thumbnail_Logo plataforma.png" alt="Logo Institución" class="h-14 sm:h-16 md:h-20 object-contain">
       </div>
     </div>
   </nav>
@@ -40,9 +40,11 @@
 
   <header class="bg-white shadow rounded-lg m-4 sm:m-6 p-4 sm:p-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
     <div class="flex items-center gap-4 w-full sm:w-auto">
-      <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center ring-2 ring-primary/20">
+      
+      <div class="w-20 h-20 sm:w-28 sm:h-28 overflow-hidden bg-gray-100 flex items-center justify-center ring-2 ring-primary/20">
         <img id="fotoPerfil" src="assets/110607735177.jpg" alt="Foto estudiante" class="object-cover w-full h-full" />
       </div>
+      
       <div class="flex-1 min-w-0">
         <h1 id="nombreEstudiante" class="text-lg sm:text-2xl font-semibold truncate"></h1>
         <p id="programa" class="text-sm sm:text-base text-gray-600 truncate"></p>
@@ -54,7 +56,7 @@
     </div>
 
     <div class="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 ml-auto">
-      <a id="btnDownload" href="file/ResultadosEvaluacion.pdf" download class="no-print inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary text-white shadow-sm hover:opacity-95">
+      <a id="btnDownload" href="Documento/ResultadosEvaluacion.pdf" download class="no-print inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary text-white shadow-sm hover:opacity-95">
         Descargar informe academico
       </a>
       <button id="btnVerOriginal" class="no-print inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm hover:bg-gray-50">
@@ -104,61 +106,59 @@
     programa: 'TÉCNICO LABORAL EN AUXILIAR ADMINISTRATIVO',
     estado: 'Graduada',
     id: '1001987824',
-    // RUTA CORREGIDA: Se define la ruta local de la foto
     foto: 'assets/110607735177.jpg',
-    // RUTA CORREGIDA: Se apunta a la carpeta "Documento"
     downloadUrl: 'Documento/ResultadosEvaluacion.pdf', 
     promedio: 3.94,
     semestres: [
       {
         numero: 1,
         materias: [
-          { codigo: 'N/A', nombre: 'INGLES I', nota: '3.50', estado: 'Aprobada' },
-          { codigo: 'N/A', nombre: 'DIGITACIÓN I', nota: '4.60', estado: 'Aprobada' },
-          { codigo: 'N/A', nombre: 'GESTIÓN DOCUMENTAL', nota: '4.60', estado: 'Aprobada' },
-          { codigo: 'N/A', nombre: 'ARCHIVO Y NORMATIVIDAD DOCUMENTAL', nota: '4.60', estado: 'Aprobada' },
-          { codigo: 'N/A', nombre: 'GESTIÓN ADMINISTRATIVA Y PLANEACIÓN ESTRATÉGICA', nota: '4.20', estado: 'Aprobada' },
-          { codigo: 'N/A', nombre: 'ÉTICA Y VALORES', nota: '4.60', estado: 'Aprobada' },
-          { codigo: 'N/A', nombre: 'CONTABILIDAD I', nota: '4.60', estado: 'Aprobada' },
+          { codigo: '05', nombre: 'INGLES I', nota: '3.50', estado: 'Aprobada' },
+          { codigo: '06', nombre: 'DIGITACIÓN I', nota: '4.60', estado: 'Aprobada' },
+          { codigo: '133', nombre: 'GESTIÓN DOCUMENTAL', nota: '4.60', estado: 'Aprobada' },
+          { codigo: '134', nombre: 'ARCHIVO Y NORMATIVIDAD DOCUMENTAL', nota: '4.60', estado: 'Aprobada' },
+          { codigo: '135', nombre: 'GESTIÓN ADMINISTRATIVA Y PLANEACIÓN ESTRATÉGICA', nota: '4.20', estado: 'Aprobada' },
+          { codigo: '36', nombre: 'ÉTICA Y VALORES', nota: '4.60', estado: 'Aprobada' },
+          { codigo: '85', nombre: 'CONTABILIDAD I', nota: '4.60', estado: 'Aprobada' },
         ]
       },
       {
         numero: 2,
         materias: [
-          { codigo: 'N/A', nombre: 'INGLÉS II', nota: '3.60', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'NORMAS Y LEGISLACIÓN VIGENTE', nota: '4.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'GESTIÓN TRIBUTARIA', nota: '3.10', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'LIQUIDACIÓN Y PROCESAMIENTO DE NOMINA', nota: '4.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'SISTEMAS DE INFORMACIÓN CONTABLE', nota: '4.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'DIGITACIÓN II', nota: '3.50', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'CONTABILIDAD II', nota: '4.50', estado: 'Homologación' },
+          { codigo: '12', nombre: 'INGLÉS II', nota: '3.60', estado: 'Homologación' },
+          { codigo: '136', nombre: 'NORMAS Y LEGISLACIÓN VIGENTE', nota: '4.00', estado: 'Homologación' },
+          { codigo: '137', nombre: 'GESTIÓN TRIBUTARIA', nota: '3.10', estado: 'Homologación' },
+          { codigo: '138', nombre: 'LIQUIDACIÓN Y PROCESAMIENTO DE NOMINA', nota: '4.00', estado: 'Homologación' },
+          { codigo: '139', nombre: 'SISTEMAS DE INFORMACIÓN CONTABLE', nota: '4.00', estado: 'Homologación' },
+          { codigo: '42', nombre: 'DIGITACIÓN II', nota: '3.50', estado: 'Homologación' },
+          { codigo: '90', nombre: 'CONTABILIDAD II', nota: '4.50', estado: 'Homologación' },
         ]
       },
       {
         numero: 3,
         materias: [
-          { codigo: 'N/A', nombre: 'CONTABILIDAD III', nota: '3.40', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'SOFTWARE DE GESTIÓN DOCUMENTAL', nota: '3.80', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'DIGITACIÓN III', nota: '4.30', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'INGLÉS III', nota: '4.20', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'METODOLOGÍA DE LA INVESTIGACIÓN', nota: '3.10', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'LEGISLACIÓN DOCUMENTAL', nota: '4.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'GESTIÓN PRESUPUESTAL', nota: '4.30', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'INFORMES Y PROYECCIONES FINANCIERAS', nota: '3.60', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'EXCEL AVANZADO', nota: '4.00', estado: 'Homologación' },
+          { codigo: '95', nombre: 'CONTABILIDAD III', nota: '3.40', estado: 'Homologación' },
+          { codigo: '102', nombre: 'SOFTWARE DE GESTIÓN DOCUMENTAL', nota: '3.80', estado: 'Homologación' },
+          { codigo: '48', nombre: 'DIGITACIÓN III', nota: '4.30', estado: 'Homologación' },
+          { codigo: '20', nombre: 'INGLÉS III', nota: '4.20', estado: 'Homologación' },
+          { codigo: '23', nombre: 'METODOLOGÍA DE LA INVESTIGACIÓN', nota: '3.10', estado: 'Homologación' },
+          { codigo: '140', nombre: 'LEGISLACIÓN DOCUMENTAL', nota: '4.00', estado: 'Homologación' },
+          { codigo: '142', nombre: 'GESTIÓN PRESUPUESTAL', nota: '4.30', estado: 'Homologación' },
+          { codigo: '143', nombre: 'INFORMES Y PROYECCIONES FINANCIERAS', nota: '3.60', estado: 'Homologación' },
+          { codigo: '15', nombre: 'EXCEL AVANZADO', nota: '4.00', estado: 'Homologación' },
         ]
       },
        {
         numero: 4,
         materias: [
-          { codigo: 'N/A', nombre: 'LEGISLACIÓN LABORAL Y PROCESAMIENTO DE NOMINA II', nota: '4.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'EMPRENDIMIENTO EMPRESARIAL', nota: '4.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'INGLÉS IV', nota: '3.90', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'PROYECTO DE GRADO E INVESTIGACIÓN', nota: '3.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: "SISTEMAS DE GESTIÓN DE CALIDAD, TIC'S Y COMPETENCIAS ORGANIZACIONALES", nota: '3.60', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'SALUD OCUPACIONAL Y SEGURIDAD INDUSTRIAL, ÉTICA Y RESPONSABILIDAD AMBIENTAL', nota: '4.00', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'MARCO LEGAL VIGENTE', nota: '3.50', estado: 'Homologación' },
-          { codigo: 'N/A', nombre: 'DIGITACIÓN IV', nota: '4.00', estado: 'Homologación' },
+          { codigo: '176', nombre: 'LEGISLACIÓN LABORAL Y PROCESAMIENTO DE NOMINA II', nota: '4.00', estado: 'Homologación' },
+          { codigo: '24', nombre: 'EMPRENDIMIENTO EMPRESARIAL', nota: '4.00', estado: 'Homologación' },
+          { codigo: '29', nombre: 'INGLÉS IV', nota: '3.90', estado: 'Homologación' },
+          { codigo: '31', nombre: 'PROYECTO DE GRADO E INVESTIGACIÓN', nota: '3.00', estado: 'Homologación' },
+          { codigo: '49', nombre: "SISTEMAS DE GESTIÓN DE CALIDAD, TIC'S Y COMPETENCIAS ORGANIZACIONALES", nota: '3.60', estado: 'Homologación' },
+          { codigo: '50', nombre: 'SALUD OCUPACIONAL Y SEGURIDAD INDUSTRIAL, ÉTICA Y RESPONSABILIDAD AMBIENTAL', nota: '4.00', estado: 'Homologación' },
+          { codigo: '51', nombre: 'MARCO LEGAL VIGENTE', nota: '3.50', estado: 'Homologación' },
+          { codigo: '52', nombre: 'DIGITACIÓN IV', nota: '4.00', estado: 'Homologación' },
         ]
       }
     ]
@@ -166,22 +166,14 @@
 
   // --- LÓGICA PARA RENDERIZAR LA PÁGINA ---
 
-  // Rellenar encabezado
   document.getElementById('nombreEstudiante').textContent = DATA.nombre;
   document.getElementById('programa').textContent = DATA.programa;
   document.getElementById('estado').textContent = DATA.estado;
   document.getElementById('idEstudiante').textContent = DATA.id;
-  
-  // RUTA CORREGIDA: Se elimina la línea que sobreescribía la ruta de la foto y del botón de descarga.
-  // Ahora tomará los valores del HTML directamente, o los definidos en el objeto DATA de arriba.
-  // document.getElementById('fotoPerfil').src = DATA.foto; // Esta línea se elimina para no usar pravatar
-  // document.getElementById('btnDownload').href = DATA.downloadUrl; // Esta línea se elimina para que el botón funcione
-
   document.getElementById('promedio').textContent = DATA.promedio ? DATA.promedio.toFixed(2).replace('.', ',') : '—';
 
   const container = document.getElementById('semestresContainer');
 
-  // Función para generar un detalle de notas de ejemplo
   const generarDetalleEjemplo = (notaFinal) => {
       return {
         seguimiento: { porcentaje: 40, nota: (parseFloat(notaFinal) + 0.1).toFixed(2) },
@@ -191,46 +183,53 @@
       };
   };
 
-  // Crear filas de materias
   function crearFilaMateria(m) {
-    const tr = document.createElement('div');
-    tr.className = 'grid grid-cols-12 gap-2 items-center py-2 border-b border-gray-200 last:border-b-0';
+    const fila = document.createElement('div');
+    fila.className = 'grid grid-cols-12 gap-2 items-center py-2 border-b border-gray-200 last:border-b-0';
     
     if (!m.detalle) {
         m.detalle = generarDetalleEjemplo(m.nota);
     }
     
     let estadoClase = 'bg-gray-100 text-gray-700';
-    if(m.estado === 'Aprobada') estadoClase = 'bg-green-100 text-green-800';
-    if(m.estado === 'Homologación') estadoClase = 'bg-blue-100 text-blue-800';
+    if (m.estado === 'Aprobada') estadoClase = 'bg-green-100 text-green-800';
+    if (m.estado === 'Homologación') estadoClase = 'bg-blue-100 text-blue-800';
 
-    tr.innerHTML = `
-        <div class="col-span-2 text-xs sm:text-sm text-gray-500">${m.codigo}</div>
-        <div class="col-span-5 sm:col-span-6 text-xs sm:text-sm font-medium text-gray-800">${m.nombre}</div>
-        <div class="col-span-3 sm:col-span-2 text-right text-sm font-semibold text-gray-900">${parseFloat(m.nota).toFixed(2).replace('.', ',')}</div>
-        <div class="col-span-2 text-center text-xs">
-            <span class="px-2 py-1 rounded-full font-medium ${estadoClase}">${m.estado}</span>
-        </div>
-    `;
+    const colCodigo = document.createElement('div');
+    colCodigo.className = 'col-span-2 sm:col-span-1 text-xs sm:text-sm text-gray-500';
+    colCodigo.textContent = m.codigo;
 
+    const colNombre = document.createElement('div');
+    colNombre.className = 'col-span-10 sm:col-span-7 text-xs sm:text-sm font-medium text-gray-800 flex items-center gap-2 flex-wrap';
+    
+    const nombreTexto = document.createTextNode(m.nombre);
     const btnDetalle = document.createElement('button');
-    btnDetalle.className = 'ml-auto text-xs rounded-md bg-white border px-2 py-1 hover:bg-gray-50';
+    btnDetalle.className = 'text-xs rounded-md bg-white border border-gray-300 px-2 py-1 hover:bg-gray-50 no-print';
     btnDetalle.textContent = 'Detalle';
     btnDetalle.onclick = () => abrirModal(m);
-    
-    const cell = document.createElement('div');
-    cell.className = "col-span-12 sm:col-span-1 flex justify-end";
-    cell.appendChild(btnDetalle);
 
-    const filaCompleta = document.createElement('div');
-    filaCompleta.className = 'grid grid-cols-12 gap-2 items-center';
-    filaCompleta.innerHTML = tr.innerHTML;
-    filaCompleta.appendChild(cell);
+    colNombre.appendChild(nombreTexto);
+    colNombre.appendChild(btnDetalle);
+
+    const colNota = document.createElement('div');
+    colNota.className = 'col-span-6 sm:col-span-2 text-right text-sm font-semibold text-gray-900';
+    colNota.textContent = parseFloat(m.nota).toFixed(2).replace('.', ',');
     
-    return filaCompleta;
+    const colEstado = document.createElement('div');
+    colEstado.className = 'col-span-6 sm:col-span-2 text-center text-xs';
+    const spanEstado = document.createElement('span');
+    spanEstado.className = `px-2 py-1 rounded-full font-medium ${estadoClase}`;
+    spanEstado.textContent = m.estado;
+    colEstado.appendChild(spanEstado);
+
+    fila.appendChild(colCodigo);
+    fila.appendChild(colNombre);
+    fila.appendChild(colNota);
+    fila.appendChild(colEstado);
+    
+    return fila;
   }
 
-  // Crear paneles de semestre
   DATA.semestres.forEach(sem => {
     const panel = document.createElement('div');
     panel.className = 'border border-gray-200 rounded-lg overflow-hidden';
@@ -252,11 +251,10 @@
     const head = document.createElement('div');
     head.className = 'grid grid-cols-12 gap-2 text-xs text-gray-500 font-semibold pb-2 border-b mb-2';
     head.innerHTML = `
-        <div class="col-span-2">Cód.</div>
-        <div class="col-span-5 sm:col-span-6">Asignatura</div>
-        <div class="col-span-3 sm:col-span-2 text-right">Nota</div>
-        <div class="col-span-2 text-center">Estado</div>
-        <div class="col-span-1 text-right"></div>
+        <div class="col-span-2 sm:col-span-1">Cód.</div>
+        <div class="col-span-10 sm:col-span-7">Asignatura</div>
+        <div class="col-span-6 sm:col-span-2 text-right">Nota</div>
+        <div class="col-span-6 sm:col-span-2 text-center">Estado</div>
     `;
     content.appendChild(head);
 
@@ -272,7 +270,6 @@
     container.appendChild(panel);
   });
 
-  // Funciones del Modal
   function abrirModal(materia) {
     document.getElementById('modalTitulo').textContent = `Detalle - ${materia.nombre}`;
     const contenido = document.getElementById('modalContenido');
@@ -296,5 +293,4 @@
 </script>
 
 </body>
-
 </html>
